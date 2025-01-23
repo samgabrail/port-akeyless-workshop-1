@@ -20,6 +20,8 @@
 
 Go to this repo and fork it to your own GitHub account so you have full control over the CI/CD pipeline.
 
+> DISCLAIMER: Please use a DUMMY GITHUB ACCOUNT for this lab as you will be asked to create a personal access token for the GitHub API which will be visible to the instructor and to other participants. You also will be asked to attach your github account to Port.
+
 ## 2. Start a Codespace
 
 Start a GitHub Codespace on your forked repo.

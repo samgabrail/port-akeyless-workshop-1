@@ -70,6 +70,8 @@ This workshop guides participants through deploying applications on Amazon EKS u
   - Container basics
 
 ## Getting Started
+
+> DISCLAIMER: Please use a DUMMY GITHUB ACCOUNT for this lab as you will be asked to create a personal access token for the GitHub API which will be visible to the instructor and to other participants. You also will be asked to attach your github account to Port.
 Begin with [Lab 1: Environment Setup](Lab01/guide.md) to start your journey through the workshop.
 
 ## If Your Codespace Times Out (THIS SHOULD NOT HAPPEN BUT JUST IN CASE)
@@ -106,30 +108,13 @@ watch kubectl get pods -A
 
 wait till the Akeyless Gateway pods are in a 1/1 Running state.
 
-### 5. Port forward the services
+### 5. Port forward the Akeyless Gateway service
 
-#### 5.1 ArgoCD UI
-```bash
-kubectl port-forward -n argocd service/argocd-server 3000:443
-```
-Remember to set the port protocol to HTTPS in the Ports tab.
-
-#### 5.2 Akeyless Gateway
 ```bash
 kubectl port-forward svc/gw-akeyless-api-gateway 8000:8000 -n akeyless
 ```
 Remember to set the port visibility to Public in the Ports tab.
 
-#### 5.3 Akeyless API
-```bash
-kubectl port-forward svc/gw-akeyless-api-gateway 8081:8081 -n akeyless
-```
-Remember to set the port visibility to Public in the Ports tab.
-
-#### 5.4 Flask Application
-```bash
-kubectl port-forward svc/flask-todo 5000:80 -n flask-todo
-```
 
 ### 6. Login to the Akeyless Gateway UI
 
@@ -137,23 +122,9 @@ This will reset the connection between the Gateway and the Akeyless Console. If 
 
 Use the credentials in the file `creds_api_key_auth.json` to login to the Akeyless Gateway.
 
-### 7. Login to ArgoCD
+### 7. Delete the Target, Rotated Secret, and Dynamic Secret
 
-- Username: `admin`
-- Password: `kubectl get secret -n argocd argocd-initial-admin-secret -o json | jq -r '.data.password' | base64 --decode`
-
-If you find the flask application pod still in a CrashLoopBackOff state, you can restart the pod by deleting it from ArgoCD directly.
-
-### 8. Check the Flask Application UI
-
-Go to the ports section in your codespace and click on the globe icon on the Port `5000` line to open the Flask App in a new tab.
-
-Start interacting with the Flask App by adding and deleting todo items and find the Easter Egg if you haven't already! 🔐
-
-### 9. [Optional] Login to the Akeyless Console
-
-Use the following OIDC Access ID when logging into Akeyless via OIDC (both UI and CLI).
-`p-j1ej0z1eudthim`
+In the Akeyless Console, delete the Target, Rotated Secret, and Dynamic Secret to start fresh.
 
 ## Troubleshooting Tips
 

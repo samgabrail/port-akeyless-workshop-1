@@ -72,6 +72,7 @@ This workshop guides participants through deploying applications on Amazon EKS u
 ## Getting Started
 
 > DISCLAIMER: Please use a DUMMY GITHUB ACCOUNT for this lab as you will be asked to create a personal access token for the GitHub API which will be visible to the instructor and to other participants. You also will be asked to attach your github account to Port.
+
 Begin with [Lab 1: Environment Setup](Lab01/guide.md) to start your journey through the workshop.
 
 ## If Your Codespace Times Out (THIS SHOULD NOT HAPPEN BUT JUST IN CASE)
